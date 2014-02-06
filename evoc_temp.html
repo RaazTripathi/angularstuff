@@ -1,0 +1,191 @@
+
+    <script type="text/javascript" src="js/angular.js"></script>
+    <script type="text/javascript" src="controllers.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script><!-- 
+    file: evoc_temp.html
+    description: Template for the evoc card  
+                 
+ -->
+
+<div class="card_content" ng-switch="viewMode" ng-controller='evoc_ctrl'>
+  <div ng-switch-when="grid">
+    <div class="row-fluid card_title">
+      <div class="span12">
+        <h5 ng-bind-html="card.title.toUpperCase()"></h5>
+      </div>
+    </div>
+    <div class="row-fluid">
+      <div class="span12">
+        <span ng-bind-html='card.body.mk'></span>
+        <div class=fieldName>is also known as</div>
+        <span ng-bind-html='card.body.active_agent'></span>
+      </div>
+    </div>
+  </div>
+
+  <div ng-switch-when="list">
+    <div class="row-fluid card_title">
+    	<div class="span12">
+    		<h4 ng-bind-html="card.title.toUpperCase()"></h4>
+    	</div>
+    </div>
+    <div class="row-fluid" >
+      <div class="span6">
+        <p><span class="merck_green_font">Compound Identifiers</span><br>
+        <span class=fieldName>MK#: </span>
+        <span ng-bind-html='card.body.mk'></span><br>
+        <span class=fieldName>L#: </span>
+        <span ng-bind-html='card.body.active_agent'></span><br>
+        <span ng-show="card.body.banyucompoundidentifier !== undefined 
+                      && card.body.banyucompoundidentifier !== 'null'
+                      && card.body.banyucompoundidentifier !== null
+                      && card.body.banyucompoundidentifier !== ''">
+          <span class=fieldName>Banyu Compound ID: </span>
+          <span ng-bind-html='card.body.banyucompoundidentifier'></span><br>
+        </span>
+        <span ng-show="card.body.chemicalabstractsregistrynumber !== undefined
+                      && card.body.chemicalabstractsregistrynumber !== 'null'
+                      && card.body.chemicalabstractsregistrynumber !== null
+                      && card.body.chemicalabstractsregistrynumber !== ''">
+          <span class=fieldName>Chemical Abstracts Registry #: </span>
+         <span ng-bind-html='card.body.chemicalabstractsregistrynumber'></span><br>
+        </span>
+        <span ng-show="card.body.rinumber !== undefined
+                      && card.body.rinumber !== 'null'
+                      && card.body.rinumber !== null
+                      && card.body.rinumber !== ''">
+          <span class=fieldName>RI#: </span>
+          <span ng-bind-html='card.body.rinumber'></span><br>
+        </span>
+        <span ng-show="card.body.scheringploughdevelopmentidentifier !== undefined
+                      && card.body.scheringploughdevelopmentidentifier !== 'null'
+                      && card.body.scheringploughdevelopmentidentifier !== null
+                      && card.body.scheringploughdevelopmentidentifier !== ''">
+          <span class=fieldName>Schering-Plough Development ID: </span>
+          <span ng-bind-html='card.body.scheringploughdevelopmentidentifier'></span><br>
+        </span>
+        <span ng-show="card.body.scheringploughdiscoveryidentifier !== undefined
+                      && card.body.scheringploughdiscoveryidentifier !== 'null'
+                      && card.body.scheringploughdiscoveryidentifier !== null
+                      && card.body.scheringploughdiscoveryidentifier !== ''">
+          <span class=fieldName>Schering-Plough Discovery ID: </span>
+          <span ng-bind-html='card.body.scheringploughdiscoveryidentifier'></span><br>
+        </span>
+        <span ng-show="card.body.vnumber !== undefined
+                      && card.body.vnumber !== 'null'
+                      && card.body.vnumber !== null
+                      && card.body.vnumber !== ''">
+          <span class=fieldName>V#: </span>
+          <span ng-bind-html='card.body.vnumber'></span>
+        </span>
+        </p>
+      </div>
+      <div class="span6">
+        <p>
+        <span class="merck_green_font">Alternative Names</span><br>
+        <span ng-show="card.body.britishapprovedname !== undefined
+                      && card.body.britishapprovedname !== 'null'
+                      && card.body.britishapprovedname !== null
+                      && card.body.britishapprovedname !== ''">
+          <span class=fieldName>Approved Name (British): </span>
+          <span ng-bind-html='card.body.britishapprovedname'></span><br>
+        </span>            
+        <span ng-show="card.body.japaneseapprovedname !== undefined
+                      && card.body.japaneseapprovedname !== 'null'
+                      && card.body.japaneseapprovedname !== null
+                      && card.body.japaneseapprovedname !== ''">
+          <span class=fieldName>Approved Name (Japanese): </span>
+          <span ng-bind-html='card.body.japaneseapprovedname'></span><br>
+        </span>            
+        <span ng-show="card.body.productcircularchemname !== undefined
+                      && card.body.productcircularchemname !== 'null'
+                      && card.body.productcircularchemname !== null
+                      && card.body.productcircularchemname !== ''">
+          <span class=fieldName>Circular Chemistry Name: </span>
+          <span ng-bind-html='card.body.productcircularchemname'></span><br>
+        </span>            
+        <span ng-show="card.body.generic_nm !== undefined
+                      && card.body.generic_nm !== 'null'
+                      && card.body.generic_nm !== null
+                      && card.body.generic_nm !== ''">
+          <span class=fieldName>Generic Name: </span>
+          <span ng-bind-html='card.body.generic_nm'></span><br>
+        </span>            
+        <span ng-show="card.body.localtradename !== undefined
+                      && card.body.localtradename !== 'null'
+                      && card.body.localtradename !== null
+                      && card.body.localtradename !== ''">
+          <span class=fieldName>Local Trade Name: </span>
+          <span ng-bind-html='card.body.localtradename'></span><br>
+        </span>            
+        <span ng-show="card.body.merckcurrentname !== undefined
+                      && card.body.merckcurrentname !== 'null'
+                      && card.body.merckcurrentname !== null
+                      && card.body.merckcurrentname !== ''">
+          <span class=fieldName>Merck Current Name: </span>
+          <span ng-bind-html='card.body.merckcurrentname'></span><br>
+        </span>            
+        <span ng-show="card.body.nationalformulary !== undefined
+                      && card.body.nationalformulary !== 'null'
+                      && card.body.nationalformulary !== null
+                      && card.body.nationalformulary !== ''">
+          <span class=fieldName>National Formulary: </span>
+          <span ng-bind-html='card.body.nationalformulary'></span><br>
+        </span>            
+        <span ng-show="card.body.researchcompoundname !== undefined
+                      && card.body.researchcompoundname !== 'null'
+                      && card.body.researchcompoundname !== null
+                      && card.body.researchcompoundname !== ''">
+          <span class=fieldName>Research Compound Name: </span>
+          <span ng-bind-html='card.body.researchcompoundname'></span><br>
+        </span>            
+        <span ng-show="card.body.unitedstatesadoptedname !== undefined
+                      && card.body.unitedstatesadoptedname !== 'null'
+                      && card.body.unitedstatesadoptedname !== null
+                      && card.body.unitedstatesadoptedname !== ''">
+          <span class=fieldName>US Adopted Name: </span>
+        <span ng-bind-html='card.body.unitedstatesadoptedname'></span><br>
+        </span>            
+        <span ng-show="card.body.unitedstatespharmacopeia !== undefined
+                      && card.body.unitedstatespharmacopeia !== 'null'
+                      && card.body.unitedstatespharmacopeia !== null
+                      && card.body.unitedstatespharmacopeia !== ''">
+          <span class=fieldName>US Pharmacopeia: </span>
+          <span ng-bind-html='card.body.unitedstatespharmacopeia'></span><br>
+        </span>            
+        <span ng-show="card.body.innapprovedname !== undefined
+                      && card.body.innapprovedname !== 'null'
+                      && card.body.innapprovedname !== null
+                      && card.body.innapprovedname !== ''">
+          <span class=fieldName>WHO INN Approved Name: </span>
+          <span ng-bind-html='card.body.innapprovedname'></span>
+        </span>            
+        </p>
+        
+        <p><span class="merck_green_font">Additional Information</span><br>
+        <span ng-show="card.body.abbreviatedactiveingredientname !== undefined
+                      && card.body.abbreviatedactiveingredientname !== 'null'
+                      && card.body.abbreviatedactiveingredientname !== null
+                      && card.body.abbreviatedactiveingredientname !== ''">
+          <span class=fieldName>Active Ingredient Name (Abbr.): </span>
+          <span ng-bind-html='card.body.abbreviatedactiveingredientname'></span><br>
+        </span>  
+        <span ng-show="card.body.activemoietyname !== undefined
+                      && card.body.activemoietyname !== 'null'
+                      && card.body.activemoietyname !== null
+                      && card.body.activemoietyname !== ''">
+          <span class=fieldName>Active Moiety: </span>
+          <span ng-bind-html='card.body.activemoietyname'></span><br>
+        </span>  
+        <span ng-show="card.body.researchpartnername !== undefined
+                      && card.body.researchpartnername !== 'null'
+                      && card.body.researchpartnername !== null
+                      && card.body.researchpartnername !== ''">
+          <span class=fieldName>Research Partner Name: </span>
+          <span ng-bind-html='card.body.researchpartnername'></span>
+        </span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

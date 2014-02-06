@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<title>AngularJS Setup</title>
+  </head>
+  <body ng-app="app">
+  	<form>
+  		<table ng-controller="MainController">
+  			<tr ng-init="showPreview(120)">
+  				<td>Name:</td>
+  				<td colspan="2"><input type="text" ng-model="contact.name" /></td>
+  			</tr>
+  			<tr>
+  				<td colspan="2" align="left">Details :</td>
+  			</tr>
+  			<tr>
+  				<td showonhoverparent><textarea ng-model="contact.details" rows="20" cols="50" ng-click="toggle()" ></textarea></td>
+  				<td><div style="display:none"><textarea readonly="true" ng-model="contact.actual_details"rows="20" cols="50"></textarea></div></td>
+  			</tr>
+  		</table>
+  	</form>
+  	<script type="text/javascript" src="js/angular.js"></script>
+  	<script type="text/javascript" src="js/controller.js"></script>
+  	<script type="text/javascript" src="js/jquery.min.js"></script>
+  </body>
+</html>
