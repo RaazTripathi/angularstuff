@@ -604,7 +604,6 @@ angular.module('huron.controllers', []).
         $scope.openModal(item);
     };
     
- // set up pop up dialogs
     $scope.dialogOpts = {
         backdrop : true,
         backdropFade: true,
